@@ -9,14 +9,13 @@
   --hue: 194;
   --bg-color: hsl(var(--hue), 90%, 98%);
   --text-color: hsl(var(--hue), 5%, 7%);
-  --controls-bg-color: hsl(var(--hue), 0%, 14%);
   --cards-sounds: hsl(var(--hue), 30%, 89%);
-  --primary-color: hsl(var(--hue), 100%, 63%);
-  --button-secondary: hsl(var(--hue), 40%, 98%);
+  --primary-color: hsl(var(--hue), 10%, 63%);
+  --toggle-color-mode: hsl(var(--hue), 8%, 8%);
 
   font-size: clamp(40%, 1% + 2vw, 62.5%);
 }
-.sr-only{
+.sr-only {
   width: 1px;
   height: 1px;
   position: absolute;
@@ -38,8 +37,20 @@ body {
   gap: 3.2rem;
   align-items: center;
 }
-#modes-items {
+html.dark {
+  --bg-color: hsl(var(--hue), 10%, 8%);
+  --text-color: hsl(var(--hue), 95%, 97%);
+  --cards-sounds: hsl(var(--hue), 30%, 89%);
+  --toggle-color-mode: hsl(var(--hue), 98%, 98%);
+}
+html.dark .ph-moon,
+html:not(.dark) .ph-sun {
+  display: none;
+}
+#toggle-mode {
   position: absolute;
+  background-color: transparent;
+  color: var(--toggle-color-mode);
   top: 3rem;
   right: 3rem;
   border: none;

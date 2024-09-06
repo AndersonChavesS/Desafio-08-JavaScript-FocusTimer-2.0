@@ -11,17 +11,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Focus Timer 2.0</title>
     <link rel="stylesheet" href="style.css" />
+    <script type="module" src="./src/main.js"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
   </head>
   <body>
     <div id="app">
-      <div id="mode">
-        <button id="modes-items">
-          <span class="sr-only">Light mode ativado</span>
-          <i class="ph-bold ph-sun"></i>
-          <i class="ph-bold ph-moon"></i>
-        </button>
-      </div>
+      <button id="toggle-mode">
+        <span id="mode" class="sr-only">Light mode ativado</span>
+        <i class="ph-bold ph-sun"></i>
+        <i class="ph-bold ph-moon"></i>
+      </button>
+
       <section id="timer">
         <div class="flex">
           <span id="minutes">00</span>
