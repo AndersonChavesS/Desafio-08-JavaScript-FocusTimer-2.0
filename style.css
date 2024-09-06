@@ -16,6 +16,16 @@
 
   font-size: clamp(40%, 1% + 2vw, 62.5%);
 }
+.sr-only{
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  padding: 0px;
+  border: 0px;
+  appearance: none;
+}
 body {
   background: var(--bg-color);
   color: var(--text-color);
@@ -41,9 +51,7 @@ body {
   gap: 1.6rem;
 }
 
-#minutes,
-#two-points,
-#seconds {
+#timer {
   font-size: 9.4rem;
   font-weight: 700;
   text-align: center;
