@@ -12,7 +12,8 @@
   --cards-sounds: hsl(var(--hue), 30%, 89%);
   --primary-color: hsl(var(--hue), 10%, 63%);
   --toggle-color-mode: hsl(var(--hue), 8%, 8%);
-
+  --color-active: hsl(var(--hue), 70%, 43%);
+  --card-active: hsl(var(--hue), 70%, 43%);
   font-size: clamp(40%, 1% + 2vw, 62.5%);
 }
 .sr-only {
@@ -40,8 +41,10 @@ body {
 html.dark {
   --bg-color: hsl(var(--hue), 10%, 8%);
   --text-color: hsl(var(--hue), 95%, 97%);
-  --cards-sounds: hsl(var(--hue), 30%, 89%);
+  --cards-sounds: hsl(var(--hue), 15%, 15%);
   --toggle-color-mode: hsl(var(--hue), 98%, 98%);
+  --color-active: hsl(var(--hue), 80%, 43%);
+  --card-active: hsl(var(--hue), 80%, 43%);
 }
 html.dark .ph-moon,
 html:not(.dark) .ph-sun {
@@ -89,11 +92,20 @@ i {
 #card-coffe-shop-sound,
 #card-fireplace-sound {
   background: var(--cards-sounds);
+  color: var(--text-color);
   border: none;
   border-radius: 1rem;
   padding: 3.2rem;
   text-align: center;
   font-size: 4.5rem;
+  cursor: pointer;
+}
+
+/* Running */
+.running .ph-play-circle,
+.running .ph-timer,
+.running .ph-forest-sound {
+  color: var(--color-active);
 }
 
 /* mobile */
