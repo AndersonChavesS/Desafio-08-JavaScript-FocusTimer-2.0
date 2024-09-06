@@ -28,6 +28,13 @@ body {
   gap: 3.2rem;
   align-items: center;
 }
+#modes-items {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  border: none;
+  font-size: 3.2rem;
+}
 
 .flex {
   display: flex;
