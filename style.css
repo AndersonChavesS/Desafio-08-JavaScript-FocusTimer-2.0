@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+:root {
+  --hue: 194;
+  --bg-color: hsl(var(--hue), 90%, 98%);
+  --text-color: hsl(var(--hue), 5%, 7%);
+  --controls-bg-color: hsl(var(--hue), 0%, 14%);
+  --cards-sounds: hsl(var(--hue), 30%, 89%);
+  --primary-color: hsl(var(--hue), 100%, 63%);
+  --button-secondary: hsl(var(--hue), 40%, 98%);
+
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  display: grid;
+  height: 100vh;
+  place-content: center;
+}
+#app {
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+}
+
+.flex {
+  display: flex;
+  gap: 1.6rem;
+}
+
+#minutes,
+#two-points,
+#seconds {
+  font-size: 9.4rem;
+  font-weight: 700;
+  text-align: center;
+}
+#play,
+#stop,
+#increment,
+#decrement {
+  background: var(--bg-color);
+  border: none;
+  color: var(--text-color);
+  font-size: 5.8rem;
+}
+i {
+  cursor: pointer;
+}
+#cards-sounds {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+#card-forest-sound,
+#card-sound-of-rain,
+#card-coffe-shop-sound,
+#card-fireplace-sound {
+  background: var(--cards-sounds);
+  border: none;
+  border-radius: 1rem;
+  padding: 3.2rem;
+  text-align: center;
+  font-size: 4.5rem;
+}

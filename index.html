@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Focus Timer 2.0</title>
-   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-</head>
-<body>
-  <div id="app">
-    <div id="mode">
-      <span>Light mode ativado</span>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Focus Timer 2.0</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <div id="mode">
+        <span>Light mode ativado</span>
         <i class="ph-bold ph-sun"></i>
         <i class="ph-bold ph-moon"></i>
+      </div> -->
+      <section id="timer">
+        <div class="flex">
+          <span id="minutes">00</span>
+          <span id="two-points">:</span>
+          <span id="seconds">00</span>
+        </div>
+        <div class="flex">
+          <button id="play"><i class="ph ph-play-circle"></i></button>
+          <button id="stop"><i class="ph ph-stop-circle"></i></button>
+          <button id="increment"><i class="ph ph-plus-circle"></i></button>
+          <button id="decrement"><i class="ph ph-minus-circle"></i></button>
+        </div>
+      </section>
+      <section id="cards-sounds">
+        <button id="card-forest-sound"><i class="ph ph-tree"></i></button>
+        <button id="card-sound-of-rain">
+          <i class="ph ph-cloud-rain"></i>
+        </button>
+        <button id="card-coffe-shop-sound">
+          <i class="ph ph-storefront"></i>
+        </button>
+        <button id="card-fireplace-sound"><i class="ph ph-fire"></i></button>
+      </section>
     </div>
-    <section id="timer">
-      <div class="flex">
-        <span class="minutes">00</span>
-        <span>:</span>
-        <span class="seconds">00</span>
-      </div>
-      <div class="flex">
-        <button id="play"><i class="ph ph-play-circle"></i></button>
-        <button id="stop"><i class="ph ph-stop-circle"></i></button>
-        <button id="increment"><i class="ph ph-plus-circle"></i></button>
-        <button id="decrement"><i class="ph ph-minus-circle"></i></button>
-    </section>
-    <section id="cards-sounds">
-      <button class="card-forest-sound"><i class="ph ph-tree"></i></button>
-      <button class="card-sound-of-rain"><i class="ph ph-cloud-rain"></i></button>
-      <button class="card-coffe-shop-sound"><i class="ph ph-storefront"></i></button>
-      <button class="card-fireplace-sound"><i class="ph ph-fire"></i></button>
-    </section>
-  </div>
-</body>
+  </body>
 </html>
