@@ -9,8 +9,7 @@
   --hue: 194;
   --bg-color: hsl(var(--hue), 90%, 98%);
   --text-color: hsl(var(--hue), 5%, 7%);
-  --cards-sounds: hsl(var(--hue), 30%, 89%);
-  --primary-color: hsl(var(--hue), 10%, 63%);
+  --cards-sounds: hsl(var(--hue), 10%, 63%);
   --toggle-color-mode: hsl(var(--hue), 8%, 8%);
   --color-active: hsl(var(--hue), 70%, 43%);
   --card-active: hsl(var(--hue), 70%, 43%);
@@ -41,10 +40,11 @@ body {
 html.dark {
   --bg-color: hsl(var(--hue), 10%, 8%);
   --text-color: hsl(var(--hue), 95%, 97%);
-  --cards-sounds: hsl(var(--hue), 15%, 15%);
+  --cards-sounds: hsl(var(--hue), 10%, 63%);
   --toggle-color-mode: hsl(var(--hue), 98%, 98%);
   --color-active: hsl(var(--hue), 80%, 43%);
   --card-active: hsl(var(--hue), 80%, 43%);
+  --button-active: hsl(var(--hue), 80%, 43%);
 }
 html.dark .ph-moon,
 html:not(.dark) .ph-sun {
@@ -84,15 +84,16 @@ html:not(.dark) .ph-sun {
   color: var(--text-color);
   font-size: 5.8rem;
 }
+#controls button:active {
+  color: var(--color-active);
+  border-radius: 4px;
+}
 #cards-sounds {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
-#card-forest-sound,
-#card-sound-of-rain,
-#card-coffe-shop-sound,
-#card-fireplace-sound {
+.card-sound-item {
   background: var(--cards-sounds);
   color: var(--text-color);
   border: none;
@@ -113,4 +114,9 @@ html:not(.dark) .ph-sun {
     right: 1.5rem;
     font-size: 2.6rem;
   }
+}
+/* utilities */
+.active {
+  background-color: var(--card-active);
+  color: var(--text-color);
 }
