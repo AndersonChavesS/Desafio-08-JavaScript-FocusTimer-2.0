@@ -58,11 +58,12 @@ html:not(.dark) .ph-sun {
   right: 3rem;
   border: none;
   font-size: 3.2rem;
+  cursor: pointer;
 }
 
 .flex {
   display: flex;
-  gap: 1.6rem;
+  flex-direction: column;
 }
 
 #timer {
@@ -70,17 +71,18 @@ html:not(.dark) .ph-sun {
   font-weight: 700;
   text-align: center;
 }
-#play,
-#stop,
-#increment,
-#decrement {
-  background: var(--bg-color);
+#controls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+#controls button {
   border: none;
+  background: transparent;
+  cursor: pointer;
+  background: var(--bg-color);
   color: var(--text-color);
   font-size: 5.8rem;
-}
-i {
-  cursor: pointer;
 }
 #cards-sounds {
   display: grid;
