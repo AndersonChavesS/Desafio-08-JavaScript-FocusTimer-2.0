@@ -103,13 +103,6 @@ html:not(.dark) .ph-sun {
   cursor: pointer;
 }
 
-/* Running */
-.running .ph-play-circle,
-.running .ph-timer,
-.running .ph-forest-sound {
-  color: var(--color-active);
-}
-
 /* mobile */
 @media (min-width: 320px) and (max-width: 480px) {
   #app {
