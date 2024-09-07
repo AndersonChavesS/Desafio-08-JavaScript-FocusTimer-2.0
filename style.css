@@ -76,18 +76,17 @@ html:not(.dark) .ph-sun {
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
-#controls button {
+.play,
+.stop,
+.plus,
+.minus {
   border: none;
   background: transparent;
   cursor: pointer;
-  background: var(--bg-color);
   color: var(--text-color);
   font-size: 5.8rem;
 }
-#controls button:active {
-  color: var(--color-active);
-  border-radius: 4px;
-}
+
 #cards-sounds {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -118,5 +117,7 @@ html:not(.dark) .ph-sun {
 /* utilities */
 .active {
   background-color: var(--card-active);
-  color: var(--text-color);
+  color: var(--text);
+  border-radius: 10px;
 }
+
