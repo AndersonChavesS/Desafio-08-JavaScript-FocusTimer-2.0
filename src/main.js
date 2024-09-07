@@ -1,9 +1,12 @@
 const play = document.querySelector('.play');
 const stop = document.querySelector('.stop');
+const increment = document.querySelector('.plus');
+const decrement = document.querySelector('.minus');
 const controls = document.getElementById('controls');
 const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
-const kichenTimer = document.getElementById('../assets/kichen-timer.mp3');
+const clickButton = new Audio('../assets/button-press.wav');
+const alarm = new Audio('../assets/kichen-timer.mp3');
 
 // state
 const state = {
@@ -26,8 +29,10 @@ buttonToggle.addEventListener('click', (e) => {
 });
 
 // functions
+
 function playInit() {
   play.classList.toggle('active');
+  clickButton.play();
   clearTimeout(state.countdownId);
 
   if (play.classList.contains('active')) {
@@ -37,6 +42,7 @@ function playInit() {
         clearInterval(state.countdownId);
         state.isActive = false;
         play.classList.remove('active');
+        alarm.play();
         return;
       }
 
@@ -48,26 +54,42 @@ function playInit() {
       }
 
       updateCounter();
-      return
+
+      return;
     }, 1000);
   }
 }
 
 function counterStop() {
   play.classList.remove('active');
+  clickButton.play();
   clearTimeout(state.countdownId);
   state.isActive = false;
   state.minutes = 25;
   state.seconds = 0;
   updateCounter();
-  return
+  return;
 }
 
 function updateCounter() {
   minutes.textContent = state.minutes.toString().padStart(2, '0');
   seconds.textContent = state.seconds.toString().padStart(2, '0');
 }
+
+function addFiveMinutes() {
+  clickButton.play();
+  state.minutes += 5;
+  updateCounter();
+}
+
+function removeFiveMinutes() {
+  clickButton.play();
+  if (state.minutes === 0 && state.seconds === 0) return;
+  state.minutes -= 5;
+  updateCounter();
+}
 // events
 play.addEventListener('click', playInit);
-
 stop.addEventListener('click', counterStop);
+increment.addEventListener('click', addFiveMinutes);
+decrement.addEventListener('click', removeFiveMinutes);
