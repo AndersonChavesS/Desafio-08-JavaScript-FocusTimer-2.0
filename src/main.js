@@ -5,8 +5,21 @@ const decrement = document.querySelector('.minus');
 const controls = document.getElementById('controls');
 const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
-const clickButton = new Audio('../assets/button-press.wav');
-const alarm = new Audio('../assets/kichen-timer.mp3');
+const allSoundsCards = document.querySelectorAll('#cards-sounds');
+const forestSoundCard = document.querySelector('.card-forest-sound');
+const soundOfRainCard = document.querySelector('.card-sound-of-rain');
+const coffeShopSoundCard = document.querySelector('.card-coffe-shop-sound');
+const firePlaceSoundCard = document.querySelector('.card-fire-place-sound');
+
+// allSounds
+const allSounds = {
+  alarm: new Audio('../assets/kichen-timer.mp3'),
+  clickButton: new Audio('../assets/button-press.wav'),
+  forestSound: new Audio('../assets/Floresta.wav'),
+  soundOfRain: new Audio('../assets/Chuva.wav'),
+  coffeShopSound: new Audio('../assets/Cafeteria.wav'),
+  firePlaceSound: new Audio('../assets/Lareira.wav'),
+};
 
 // state
 const state = {
@@ -32,7 +45,7 @@ buttonToggle.addEventListener('click', (e) => {
 
 function playInit() {
   play.classList.toggle('active');
-  clickButton.play();
+  allSounds.clickButton.play();
   clearTimeout(state.countdownId);
 
   if (play.classList.contains('active')) {
@@ -42,7 +55,7 @@ function playInit() {
         clearInterval(state.countdownId);
         state.isActive = false;
         play.classList.remove('active');
-        alarm.play();
+        allSounds.alarm.play();
         return;
       }
 
@@ -62,7 +75,7 @@ function playInit() {
 
 function counterStop() {
   play.classList.remove('active');
-  clickButton.play();
+  allSounds.clickButton.play();
   clearTimeout(state.countdownId);
   state.isActive = false;
   state.minutes = 25;
@@ -77,19 +90,83 @@ function updateCounter() {
 }
 
 function addFiveMinutes() {
-  clickButton.play();
+  allSounds.clickButton.play();
   state.minutes += 5;
   updateCounter();
 }
 
 function removeFiveMinutes() {
-  clickButton.play();
-  if (state.minutes === 0 && state.seconds === 0) return;
+  allSounds.clickButton.play();
+  if (state.minutes <= 0 && state.seconds === 0) return;
+
   state.minutes -= 5;
   updateCounter();
 }
+
+function toggleMusic() {
+  allSounds.clickButton.play();
+  allSoundsCards.forEach((sound) => sound.classList.remove('active'));
+  this.classList.toggle('active');
+
+  if (
+    this.classList.contains('card-forest-sound') &&
+    this.classList.contains('active')
+  ) {
+    allSounds.forestSound.play();
+    allSounds.soundOfRain.pause();
+    allSounds.coffeShopSound.pause();
+    allSounds.firePlaceSound.pause();
+    allSounds.forestSound.loop = true;
+  } else {
+    allSounds.forestSound.pause();
+  }
+
+  if (
+    this.classList.contains('card-sound-of-rain') &&
+    this.classList.contains('active')
+  ) {
+    allSounds.soundOfRain.play();
+    allSounds.forestSound.pause();
+    allSounds.coffeShopSound.pause();
+    allSounds.firePlaceSound.pause();
+    allSounds.soundOfRain.loop = true;
+  } else {
+    allSounds.soundOfRain.pause();
+  }
+
+  if (
+    this.classList.contains('card-coffe-shop-sound') &&
+    this.classList.contains('active')
+  ) {
+    allSounds.coffeShopSound.play();
+    allSounds.forestSound.pause();
+    allSounds.soundOfRain.pause();
+    allSounds.firePlaceSound.pause();
+    allSounds.coffeShopSound.loop = true;
+  } else {
+    allSounds.coffeShopSound.pause();
+  }
+
+  if (
+    this.classList.contains('card-fire-place-sound') &&
+    this.classList.contains('active')
+  ) {
+    allSounds.firePlaceSound.play();
+    allSounds.forestSound.pause();
+    allSounds.soundOfRain.pause();
+    allSounds.coffeShopSound.pause();
+    allSounds.firePlaceSound.loop = true;
+  } else {
+    allSounds.firePlaceSound.pause();
+  }
+}
+
 // events
 play.addEventListener('click', playInit);
 stop.addEventListener('click', counterStop);
 increment.addEventListener('click', addFiveMinutes);
 decrement.addEventListener('click', removeFiveMinutes);
+forestSoundCard.addEventListener('click', toggleMusic);
+soundOfRainCard.addEventListener('click', toggleMusic);
+coffeShopSoundCard.addEventListener('click', toggleMusic);
+firePlaceSoundCard.addEventListener('click', toggleMusic);

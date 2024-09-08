@@ -86,13 +86,21 @@ html:not(.dark) .ph-sun {
   color: var(--text-color);
   font-size: 5.8rem;
 }
+.stop:active,
+.plus:active,
+.minus:active {
+  color: var(--color-active);
+}
 
 #cards-sounds {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
-.card-sound-item {
+.card-forest-sound,
+.card-sound-of-rain,
+.card-coffe-shop-sound,
+.card-fire-place-sound {
   background: var(--cards-sounds);
   color: var(--text-color);
   border: none;
@@ -120,4 +128,3 @@ html:not(.dark) .ph-sun {
   color: var(--text);
   border-radius: 10px;
 }
-
