@@ -55,7 +55,7 @@ function playInit() {
         clearInterval(state.countdownId);
         state.isActive = false;
         play.classList.remove('active');
-        allSounds.alarm.play();
+       
         return;
       }
 
@@ -64,6 +64,19 @@ function playInit() {
         state.minutes -= 1;
       } else {
         state.seconds -= 1;
+      }
+      if (state.seconds === 0 && state.minutes === 0) {
+        state.minutes = 25;
+        state.seconds = 0;
+        allSounds.alarm.play();
+        counterStop();
+        return;
+      }
+      if (state.minutes < 0) {
+        state.minutes = 25;
+        state.seconds = 0;
+        counterStop();
+        return;
       }
 
       updateCounter();
@@ -139,6 +152,7 @@ function toggleMusic() {
     this.classList.contains('active')
   ) {
     allSounds.coffeShopSound.play();
+
     allSounds.forestSound.pause();
     allSounds.soundOfRain.pause();
     allSounds.firePlaceSound.pause();
